@@ -1,0 +1,10 @@
+# directories
+venv/
+
+
+# files
+*.txt
+*.docx
+*.csv
+
+
