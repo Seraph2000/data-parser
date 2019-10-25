@@ -1,10 +1,12 @@
 # directories
 venv/
+__pycache__/
 
 
 # files
 *.txt
 *.docx
 *.csv
+*.csv#
 
 
