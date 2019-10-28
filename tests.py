@@ -49,11 +49,20 @@ class TestParser(unittest.TestCase):
         dict2 = {'CTIL (Vodafone/O2/T Mobile) Cornerstone Telecommunications Infrastructure Ltd': 18, 'Everything Everywhere Ltd & Hutchinson 3G UK (MBNL)': 21, 'The Office of Communications (Ofcom)': 1, 'Internexus Networks Ltd': 6, 'M24 (Seven) Metronet UK Ltd': 7, 'Telcom Networks Ltd': 5, 'CCTV': 1, 'Virgin Media': 1, 'Arqiva Ltd': 1, 'Virgin Media Limited': 2, 'Virgin Media Ltd': 1, 'City Development Department (UTC)': 1, 'Leeds Bradford Airport Limited': 1, 'Highways & Transportation UTMC': 1, 'First West Yorkshire Ltd': 1, 'ICT Services': 1, 'British Telecommunications plc': 1, 'Urban Traffic Control': 1}
         self.assertCountEqual(dict1, dict2)
 
-    # def test_format_date(datestr):
-    #     pass
-       
-    # def test_list_rentals(data):
-    #     pass
+    def test_format_date(self):
+        date = format_date('20-Mar-13')
+        datetime_1 = date[0]
+        date_reformatted_1 = date[1]
+        # date = datetime.datetime(year, month, day)
+        datetime_2 = datetime.datetime(2013, 3, 20)
+        date_reformatted_2 = "20/03/2013"
+        self.assertEqual(datetime_1, datetime_2)
+        self.assertEqual(date_reformatted_1, date_reformatted_2)
+
+    def test_list_rentals(self):
+        res1 = list_rentals(data)
+        res2 = [['12191/001', 'Burnsall Grange', 'CTIL (Vodafone/O2/T Mobile) Cornerstone Telecommunications Infrastructure Ltd', 'Burnsall Grange', 'LS12 3LG', '26/07/2007', '25/07/2032', '25', '25/07/2012', '12000', 'Antenna'], ['14155/001', 'Queensview / Seacroft Crescent', 'ICT Services', 'Queensview', 'LS14 6PG', '01/02/2006', None, '0', None, '750', 'Antenna'], ['06084/001', 'Queenswood Heights', 'CTIL (Vodafone/O2/T Mobile) Cornerstone Telecommunications Infrastructure Ltd', 'Queenswood Heights', 'LS6 3EE', '08/11/2004', '07/11/2029', '25', '08/11/2014', '9500', 'Antenna'], ['14148/001', 'Seacroft Gate (Chase) block 2', 'CTIL (Vodafone/O2/T Mobile) Cornerstone Telecommunications Infrastructure Ltd', 'Seacroft Gate (Chase) - Block 2', 'LS14', '30/01/2004', '29/01/2029', '25', '30/01/2014', '12250', 'Antenna'], ['14148/002', 'Seacroft Gate (Chase) - Block 2', 'Everything Everywhere Ltd & Hutchinson 3G UK (MBNL)', 'Seacroft Gate (Chase) - Block 2', 'LS14', '21/08/2007', '20/08/2032', '25', '21/08/2017', '12750', 'Antenna'], ['12080/002', 'Westerly Croft', 'Urban Traffic Control', 'Westerly Croft', 'LS12 2LN', '01/04/2006', None, '0', '01/04/2009', '78', 'Antenna']]
+        self.assertCountEqual(res1, res2)
 
 
 if __name__ == '__main__':

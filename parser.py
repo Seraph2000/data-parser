@@ -117,22 +117,19 @@ def option_four():
         print(item)
 
 
-# comment this part out for running unit tests
+# ***comment this part out for running unit tests***
 # implement functions as arguments
-# FUNCTION_MAP = {
-#         'option_one': option_one,
-#         'option_two': option_two,
-#         'option_three': option_three,
-#         'option_four': option_four
-# }
+FUNCTION_MAP = {
+        'option_one': option_one,
+        'option_two': option_two,
+        'option_three': option_three,
+        'option_four': option_four
+}
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument('command', choices=FUNCTION_MAP.keys())
+parser = argparse.ArgumentParser()
+parser.add_argument('command', choices=FUNCTION_MAP.keys())
 
-# args = parser.parse_args()
+args = parser.parse_args()
 
-# func = FUNCTION_MAP[args.command]
-# func()
-
-
-# format_date('14-Jan-11')
+func = FUNCTION_MAP[args.command]
+func()
