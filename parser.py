@@ -1,5 +1,4 @@
 import csv
-import sys
 import operator
 import datetime
 import re
@@ -16,11 +15,6 @@ def get_data():
     return data
 
 
-# allow user input
-def user_params():
-    return "Testing..."
-
-
 # sort in ascending order by parameter
 def sort_data(col_num):
     data = get_data()
@@ -31,7 +25,6 @@ def sort_data(col_num):
 # fetch data based on val of param
 def data_by_param(param_num, val):
     data = get_data()
-    # or lambda?
     filtered_data = [item for item in data[1:] if item[param_num] == val]
     return filtered_data
 
@@ -43,7 +36,7 @@ def total(param_num, results):
 
 
 def count_items_in_col():
-    data = get_data()
+    data = get_data()[1:]
     tenants = [item[2] for item in data]
     count_items = set([(item, tenants.count(item)) for item in tenants])
     count_items = {item[0]: item[1] for item in count_items}
@@ -124,18 +117,22 @@ def option_four():
         print(item)
 
 
+# comment this part out for running unit tests
 # implement functions as arguments
-FUNCTION_MAP = {
-        'option_one': option_one,
-        'option_two': option_two,
-        'option_three': option_three,
-        'option_four': option_four
-}
+# FUNCTION_MAP = {
+#         'option_one': option_one,
+#         'option_two': option_two,
+#         'option_three': option_three,
+#         'option_four': option_four
+# }
 
-parser = argparse.ArgumentParser()
-parser.add_argument('command', choices=FUNCTION_MAP.keys())
+# parser = argparse.ArgumentParser()
+# parser.add_argument('command', choices=FUNCTION_MAP.keys())
 
-args = parser.parse_args()
+# args = parser.parse_args()
 
-func = FUNCTION_MAP[args.command]
-func()
+# func = FUNCTION_MAP[args.command]
+# func()
+
+
+# format_date('14-Jan-11')
