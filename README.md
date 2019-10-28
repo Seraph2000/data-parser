@@ -1,6 +1,6 @@
 # data-parser
 
-## how to run parser.py
+## 1. how to run parser.py
 
 `$ python parser.py option_one`
 
@@ -11,7 +11,14 @@
 `$ python parser.py option_four`
 
 
-## functions
+
+## 2. How to run tests.py
+
+`$ python tests.py`
+
+
+
+## 3. functions
 
 
 ### get_data()
